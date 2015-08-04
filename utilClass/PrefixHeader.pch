@@ -1,0 +1,33 @@
+//
+//  PrefixHeader.pch
+//  DNS_JRC
+//
+//  Created by Yaniv Steiner on 4/2/15.
+//  Copyright (c) 2015 GoodAppl. All rights reserved.
+//
+
+#ifndef DNS_JRC_PrefixHeader_pch
+#define DNS_JRC_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif
+
+#define goldenratio 1.61803398875
+
+#ifdef DEBUG
+#   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#    define DLog(...) /* */
+#endif
+#define ALog(...) NSLog(__VA_ARGS__)
+
+
+// RGB
+#define UIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+// usage: *.backgroundColor = UIColorFromRGB(0x68512a)
+
